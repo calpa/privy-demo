@@ -13,33 +13,91 @@ function App() {
   }
 
   return (
-    <div>
-      <h1>Privy Demo</h1>
+    <div className="container mx-auto p-4">
+      <h1 className="text-3xl font-bold mb-6">Privy Demo</h1>
 
       {user && (
-        <div>
-          {address && <QRCodeSVG value={address} size={128} />}
-          <div>Address: {address}</div>
-
-          <div>ID: {user?.id}</div>
-          <div>Created At: {user?.createdAt?.toLocaleString()}</div>
-          <div>Email: {user?.email?.address || "-"}</div>
-          <div>Wallet: {user?.wallet?.address || "-"}</div>
-          <div>Smart Wallet: {user?.smartWallet?.address || "-"}</div>
-          <div>Google: {user?.google?.email || "-"}</div>
-          <div>Twitter: {user?.twitter?.username || "-"}</div>
-          <div>Discord: {user?.discord?.username || "-"}</div>
-          <div>GitHub: {user?.github?.username || "-"}</div>
-          <div>Spotify: {user?.spotify?.email || "-"}</div>
-          <div>Instagram: {user?.instagram?.username || "-"}</div>
-          <div>Tiktok: {user?.tiktok?.username || "-"}</div>
-          <div>LinkedIn: {user?.linkedin?.email || "-"}</div>
-          <div>Apple: {user?.apple?.email || "-"}</div>
-          <div>Farcaster: {user?.farcaster?.username || "-"}</div>
-          <div>Telegram: {user?.telegram?.username || "-"}</div>
+        <div className="space-y-4">
+          {address && (
+            <div className="flex justify-center mb-4">
+              <QRCodeSVG value={address} size={128} />
+            </div>
+          )}
+          <div className="bg-gray-100 p-4 rounded-lg shadow">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <span className="font-semibold">Address:</span> {address}
+              </div>
+              <div>
+                <span className="font-semibold">ID:</span> {user?.id}
+              </div>
+              <div>
+                <span className="font-semibold">Created At:</span>{" "}
+                {user?.createdAt?.toLocaleString()}
+              </div>
+              <div>
+                <span className="font-semibold">Email:</span>{" "}
+                {user?.email?.address || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Wallet:</span>{" "}
+                {user?.wallet?.address || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Smart Wallet:</span>{" "}
+                {user?.smartWallet?.address || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Google:</span>{" "}
+                {user?.google?.email || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Twitter:</span>{" "}
+                {user?.twitter?.username || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Discord:</span>{" "}
+                {user?.discord?.username || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">GitHub:</span>{" "}
+                {user?.github?.username || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Spotify:</span>{" "}
+                {user?.spotify?.email || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Instagram:</span>{" "}
+                {user?.instagram?.username || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Tiktok:</span>{" "}
+                {user?.tiktok?.username || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">LinkedIn:</span>{" "}
+                {user?.linkedin?.email || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Apple:</span>{" "}
+                {user?.apple?.email || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Farcaster:</span>{" "}
+                {user?.farcaster?.username || "-"}
+              </div>
+              <div>
+                <span className="font-semibold">Telegram:</span>{" "}
+                {user?.telegram?.username || "-"}
+              </div>
+            </div>
+          </div>
         </div>
       )}
-      <Login />
+      <div className="mt-6">
+        <Login />
+      </div>
     </div>
   );
 }
