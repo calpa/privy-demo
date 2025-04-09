@@ -14,7 +14,11 @@ export default function Login() {
         </button>
       ) : (
         <button
-          onClick={login}
+          onClick={() =>
+            login({
+              loginMethods: ["google", "github", "email", "wallet", "sms"],
+            })
+          }
           className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded cursor-pointer"
         >
           Login
